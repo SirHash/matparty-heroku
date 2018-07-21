@@ -2,6 +2,8 @@
 
 const Env = use('Env')
 const Helpers = use('Helpers')
+const Url = require('url-parse')
+const DATABASE_URL = new Url(Env.get('DATABASE_URL'))
 
 module.exports = {
   /*
@@ -13,7 +15,7 @@ module.exports = {
   | interacting with SQL databases.
   |
   */
-  connection: Env.get('DB_CONNECTION', 'pg'),
+  connection: Env.get('pg'),
 
   /*
   |--------------------------------------------------------------------------
@@ -68,11 +70,11 @@ module.exports = {
   pg: {
     client: 'pg',
     connection: {
-      host: Env.get('DB_HOST', 'ec2-54-204-18-53.compute-1.amazonaws.com'),
-      port: Env.get('DB_PORT', '5432'),
-      user: Env.get('DB_USER', 'zvlqxdovzjvmxp'),
-      password: Env.get('DB_PASSWORD', '9aa201b16549b3765257970602a86870d85fc652342d9404acd9719de56cca32'),
-      database: Env.get('DB_DATABASE', 'd3tpni6el1ua6i')
+      host: Env.get('DB_HOST', DATABASE_URL.hostname),
+      port: Env.get('DB_PORT', DATABASE_URL.port),
+      user: Env.get('DB_USER', DATABASE_URL.username),
+      password: Env.get('DB_PASSWORD', DATABASE_URL.password),
+      database: Env.get('DB_DATABASE', DATABASE_URL.pathname.substr(1))
     }
   }
 }

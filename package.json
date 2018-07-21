@@ -29,7 +29,8 @@
     "@adonisjs/lucid": "^5.0.4",
     "@adonisjs/session": "^1.0.25",
     "@adonisjs/shield": "^1.0.6",
-    "pg": "^7.4.3"
+    "pg": "^7.4.3",
+    "url-parse": "^1.4.1"
   },
   "devDependencies": {},
   "autoload": {
