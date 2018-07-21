@@ -1,2 +1,2 @@
-release: node ace migration:run users — force
+release: node ace migration:run
 web: ENV_SILENT=true node server.js
