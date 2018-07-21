@@ -15,7 +15,7 @@ module.exports = {
   | interacting with SQL databases.
   |
   */
-  connection: Env.get('pg'),
+  connection: Env.get('DB_CONNECTION', 'pg'),
 
   /*
   |--------------------------------------------------------------------------
