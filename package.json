@@ -3,9 +3,9 @@
   "version": "4.1.0",
   "adonis-version": "4.1.0",
   "description": "The fullstack application boilerplate for Adonisjs",
-    "engines": {
-      "node": "8.11.2"
-    },
+  "engines": {
+    "node": "8.11.2"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
