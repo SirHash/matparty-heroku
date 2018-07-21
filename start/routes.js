@@ -15,4 +15,10 @@
 
 const Route = use('Route')
 
-Route.on('/').render('welcome')
+// Route.on('/').render('welcome')
+Route.get('/', ({request, response}) => {
+  return response.status(200).json({
+    message: 'welcome to our api'
+  })
+})
+Route.get('/users', 'UserController.index')
