@@ -1,31 +1,29 @@
-# Adonis fullstack application
+-----------------------------
+#DEPLOY DO ADONIS NO HEROKU
+=============================
+https://medium.com/@mazinosukah/how-to-deploy-adonisjs-apps-to-heroku-66741e7cd26f
 
-This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
+OBS FEITAS
+-----------------------------
+1.O heroku não permite arquivo .env dentro do container, apaga todos.
+2.heroku run bash // comando para roda o shel do heroku
+3.Em produção: console.log(process.env) // comando que mostra todas as variveis em processo
+4.Em produção: node ace <comando> // no heroku o comando "adonis" é igual a "node ace"
+5.Em produção: ENV_SILENT=true node ace seed  --force // é necessário o ENV_SILENT=true(heroku não tem .env) e --force(produção)
 
-1. Bodyparser
-2. Session
-3. Authentication
-4. Web security middleware
-5. CORS
-6. Edge template engine
-7. Lucid ORM
-8. Migrations and seeds
+PROCFILE
+-----------------------------
+release: ENV_SILENT=true node ace migration:run --force 
+// ENV_SILENT para Adonis ignorar .env, pois o heroku já usa o "variaveis virtual"
+// --force para roda em produção
+web: ENV_SILENT=true npm start 
 
-## Setup
+CONFIGURAR NO HEROKU AS VARIAVEIS
+-----------------------------
+DATABASE_URL 
+DB_CONNECTION 
 
-Use the adonis command to install the blueprint
-
-```bash
-adonis new yardstick
-```
-
-or manually clone the repo and then run `npm install`.
-
-
-### Migrations
-
-Run the following command to run startup migrations.
-
-```js
-adonis migration:run
-```
+ADD-ONS
+-----------------------------
+Heroku Postgres :: Database
+/////////////////////////////
